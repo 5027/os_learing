@@ -2,7 +2,7 @@
 #define __KERNEL_MEMORY_H
 #include "stdint.h"
 #include "bitmap.h"
-
+#include "list.h"
 /* 内存池标记,用于判断用哪个内存池 */
 enum pool_flags {
    PF_KERNEL = 1,    // 内核内存池
@@ -23,7 +23,15 @@ struct virtual_addr {
 /* 管理的虚拟地址 */
    uint32_t vaddr_start;
 };
-
+struct mem_block{
+   struct list_elem free_elem;
+};
+struct mem_block_desc{
+   uint32_t block_size;//类似于inode
+   uint32_t blocks_per_arena;//memblock的数量
+   struct list free_list;
+};
+#define DESC_CNT 7
 extern struct pool kernel_pool, user_pool;
 void mem_init(void);
 void* get_kernel_pages(uint32_t pg_cnt);
