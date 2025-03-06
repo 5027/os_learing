@@ -11,3 +11,10 @@
 
 南大的os2025年还在更新，所以这一部分我写的不是很多，他最新的只更新到第五节课
 [南大os](jyyos.md)
+
+还有leetcode 刷的题
+[hashmap](lc_hashmap.md)
+[linklist](lc_linklist.md)
+[矩阵](lc_矩阵.md)
+[stack](lc_stack.md)
+[1-40](leetcodetop150刷题.md)
